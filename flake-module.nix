@@ -1,6 +1,6 @@
-{ inputs, lib, config, self, ... }@top: {
+{pydev, ...}: { inputs, lib, config, self, ... }@top: {
   imports = [
-    inputs.pydev.inputs.pre-commit-hooks-nix.flakeModule
+    pydev.inputs.pre-commit-hooks-nix.flakeModule
     ./interface.nix
   ];
   perSystem = { config, self', inputs', pkgs, system, lib, ... }:
@@ -81,12 +81,12 @@
 
       packages =
         (forAllPythons "${name}-" (python:
-          inputs.pydev.inputs.poetry2nix.legacyPackages.${system}.mkPoetryApplication (poetryArgs python)))
+          pydev.inputs.poetry2nix.legacyPackages.${system}.mkPoetryApplication (poetryArgs python)))
 
         //
 
         (forAllPythons "testEnv-" (python:
-          inputs.pydev.inputs.poetry2nix.legacyPackages.${system}.mkPoetryEnv (poetryArgs python)));
+          pydev.inputs.poetry2nix.legacyPackages.${system}.mkPoetryEnv (poetryArgs python)));
 
       checks =
         (forAllPythons "tests-" (python:

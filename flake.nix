@@ -16,9 +16,9 @@
   };
 
   outputs = inputs@{ flake-parts, nixpkgs, ... }:
-    flake-parts.lib.mkFlake { inherit inputs; } {
-      flake.flakeModule = ./flake-module.nix;
+    flake-parts.lib.mkFlake { inherit inputs; } ({self, ...}:{
+      flake.flakeModule = import ./flake-module.nix {pydev=self;};
       systems = [];
-    };
+    });
 
 }
