@@ -2,6 +2,7 @@
   description = "An opinionated environment for developing Python packages";
 
   inputs = {
+    nixpkgs.url = "nixpkgs/nixos-23.05";
     poetry2nix = {
       url = "github:nix-community/poetry2nix";
       inputs.nixpkgs.follows = "nixpkgs";
