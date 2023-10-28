@@ -1,6 +1,6 @@
 { inputs, lib, config, self, ... }@top: {
   imports = [
-    inputs.pre-commit-hooks-nix.flakeModule
+    inputs.pydev.inputs.pre-commit-hooks-nix.flakeModule
     ./interface.nix
   ];
   perSystem = { config, self', inputs', pkgs, system, lib, ... }:
