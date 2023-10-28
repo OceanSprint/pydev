@@ -18,6 +18,7 @@
   outputs = inputs@{ flake-parts, nixpkgs, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       flake.flakeModule = ./flake-module.nix;
+      systems = [];
     };
 
 }
