@@ -25,7 +25,7 @@
         python = pkgs.${python};
       };
 
-      pyproject = lib.importTOML ./pyproject.toml;
+      pyproject = lib.importTOML (self + /pyproject.toml);
       name = pyproject.tool.poetry.name;
 
     in
@@ -81,12 +81,12 @@
 
       packages =
         (forAllPythons "${name}-" (python:
-          inputs.poetry2nix.legacyPackages.${system}.mkPoetryApplication (poetryArgs python)))
+          inputs.pydev.inputs.poetry2nix.legacyPackages.${system}.mkPoetryApplication (poetryArgs python)))
 
         //
 
         (forAllPythons "testEnv-" (python:
-          inputs.poetry2nix.legacyPackages.${system}.mkPoetryEnv (poetryArgs python)));
+          inputs.pydev.inputs.poetry2nix.legacyPackages.${system}.mkPoetryEnv (poetryArgs python)));
 
       checks =
         (forAllPythons "tests-" (python:
