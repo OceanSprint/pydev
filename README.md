@@ -1,2 +1,3 @@
 # pydev
-An opinionated environment for developing opensource Python packages.
+
+A flake-part to setup an opinionated development environment for working on open source Python packages.
