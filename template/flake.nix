@@ -23,7 +23,7 @@
         "x86_64-darwin"
         "x86_64-linux"
       ];
-      pyDev = {
+      pydev = {
         supportedPythons = [
           "python39"
           "python310"

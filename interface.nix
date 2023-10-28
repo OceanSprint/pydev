@@ -1,5 +1,5 @@
 { lib, config, flake-parts-lib, ... }: {
-  options.pyDev = {
+  options.pydev = {
 
     supportedPythons = lib.mkOption {
       description = "Supported Python versions.";

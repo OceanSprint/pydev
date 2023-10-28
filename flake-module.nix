@@ -10,7 +10,7 @@
         propagatedBuildInputs = old.propagatedBuildInputs ++ [ pkgs.python3Packages.tomli ];
       });
 
-      supportedPythons = top.config.pyDev.supportedPythons;
+      supportedPythons = top.config.pydev.supportedPythons;
       forAllPythons = name: f:
         let
           attrNames = (map (py: "${name}${py}") supportedPythons);
@@ -143,7 +143,7 @@
 
               ]
               # extra test dependencies
-              ++ (map (name: pkgs.${name}) top.config.pyDev.extraTestDependencies);
+              ++ (map (name: pkgs.${name}) top.config.pydev.extraTestDependencies);
 
               inputsFrom = [ config.pre-commit.devShell ];
 
